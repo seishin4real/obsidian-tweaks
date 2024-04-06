@@ -1,0 +1,138 @@
+$bgs: (
+  ("black", #181C20),
+  ("blue", #081D36),
+  ("dblue", #080B36),
+  ("violet", #170836),
+  ("purple", #290836),
+  ("karmin", #36081D),
+  ("red", #36080B),
+  ("orange", #361608),
+  ("lorange", #362908),
+  ("yellow", #303608),
+  ("green", #0B3608),
+  ("lblue", #083036),
+);
+
+$pens: (
+  ("white", #edf1fc),
+  ("gray", #5f5d58),
+  ("black", #26241f),
+  ("red", #dd0000),
+  ("green", #15b64f),
+  ("blue", #3f76ed),
+  ("light-blue", #54b6f8),
+  ("purple", #9b4ff0),
+);
+
+:root {
+  @each $c in $bgs { 
+    --page-#{nth($c, 1)}: #{nth($c, 2)}; 
+  }
+
+  @each $c in $pens {
+    --pen-#{nth($c, 1)}: #{nth($c, 2)}; 
+  }
+
+  --page-color: var(--page-blue);
+  --text-color: var(--pen-white);
+  --text-color-trans: color-mix(in srgb, var(--text-color) 69%, transparent);
+  --grid-color: color-mix(in srgb, var(--text-color) 6%, transparent);
+  --grid-size: 24px;
+}
+
+/** bgs **/
+
+.page-base { 
+  --text-normal: var(--text-color);
+  --text-muted: var(--text-color);
+  --text-faint: var(--text-color-trans);
+  --h1-color: color-mix(in srgb, var(--text-color) 85%, transparent);
+  --h2-color: color-mix(in srgb, var(--text-color) 80%, transparent);
+  --h3-color: color-mix(in srgb, var(--text-color) 75%, transparent);
+  --h4-color: color-mix(in srgb, var(--text-color) 70%, transparent);
+  --h5-color: color-mix(in srgb, var(--text-color) 65%, transparent);
+  --h6-color: color-mix(in srgb, var(--text-color) 60%, transparent);
+  --link-color: var(--pen-blue);
+  --link-color-hover: var(--pen-light-blue);
+  --link-unresolved-color: var(--pen-red);
+  --hr-color: var(--text-color);
+  --blockquote-border-color: var(--text-color);
+  --embed-border-left: 2px solid var(--text-color);
+  --collapse-icon-color-collapsed: var(--text-color);
+  --checkbox-color: var(--text-color);
+  --checkbox-marker-color: var(--page-color);
+  --checkbox-color-hover: var(--text-color-trans);
+  --checkbox-border-color: var(--text-color);
+  --checklist-done-color: var(--text-color);
+  --list-marker-color: var(--text-color);
+  --interactive-accent: var(--text-color);
+  --metadata-label-text-color: var(--text-color);
+  --metadata-input-text-color: var(--text-color);
+  --tag-color: var(--text-color);
+  --tag-background: var(--text-color-trans);
+  --pill-cover-hover: color-mix(in srgb, var(--text-color) 60%, transparent);
+  --background-modifier-border-focus: var(--text-color);
+  --background-modifier-border: var(--text-color-trans);
+  --background-modifier-hover: color-mix(in srgb, var(--text-color) 60%, transparent);
+  background-color: var(--page-color);
+  color: var(--text-color);
+  color-scheme: dark;
+}
+
+@each $c in $bgs {
+  .page-#{nth($c, 1)} {
+    @extend .page-base;
+    --page-color: var(--page-#{nth($c, 1)});
+  }
+}
+
+/** pens **/
+
+.pen-base {
+   color: var(--text-color); 
+}
+
+@each $c in $pens {
+  .pen-#{nth($c, 1)} {
+    @extend .pen-base;
+    --text-color: var(--pen-#{nth($c, 1)});
+  }
+}
+
+/** grids **/
+
+$lines-horz: linear-gradient(
+  0deg, transparent 0px,
+  var(--grid-color) 1px,
+  var(--grid-color) 2px,
+  transparent 3px
+);
+$lines-vert: linear-gradient(
+  90deg, transparent calc(var(--grid-size) - 3px),
+  var(--grid-color) calc(var(--grid-size) - 2px),
+  var(--grid-color) calc(var(--grid-size) - 1px),
+  transparent var(--grid-size)
+);
+
+.grid-base {
+  background-size: var(--grid-size) var(--grid-size);
+}
+
+.page-grid {
+  @extend .grid-base;
+  background-image: $lines-horz, $lines-vert;
+}
+.page-lines {
+  @extend .grid-base;
+  background-image: $lines-horz;
+}
+.page-bars {
+  @extend .grid-base;
+  background-image: $lines-vert;
+}
+
+$grid-spacings: 12, 16, 20, 24, 32, 40, 48;
+
+@each $g in $grid-spacings {
+  .grid-#{$g} { --grid-size: #{$g}px; }
+}
