@@ -1,0 +1,195 @@
+:root {
+  --page-black: #181C20;
+  --page-blue: #081D36;
+  --page-dblue: #080B36;
+  --page-violet: #170836;
+  --page-purple: #290836;
+  --page-karmin: #36081D;
+  --page-red: #36080B;
+  --page-orange: #361608;
+  --page-lorange: #362908;
+  --page-yellow: #303608;
+  --page-green: #0B3608;
+  --page-lblue: #083036;
+  --pen-white: #edf1fc;
+  --pen-gray: #5f5d58;
+  --pen-black: #26241f;
+  --pen-red: #dd0000;
+  --pen-green: #15b64f;
+  --pen-blue: #3f76ed;
+  --pen-light-blue: #54b6f8;
+  --pen-purple: #9b4ff0;
+  --page-color: var(--page-blue);
+  --text-color: var(--pen-white);
+  --text-color-trans: color-mix(in srgb, var(--text-color) 69%, transparent);
+  --grid-color: color-mix(in srgb, var(--text-color) 6%, transparent);
+  --grid-size: 24px;
+}
+
+/** bgs **/
+.page-base, .page-lblue, .page-green, .page-yellow, .page-lorange, .page-orange, .page-red, .page-karmin, .page-purple, .page-violet, .page-dblue, .page-blue, .page-black {
+  --text-normal: var(--text-color);
+  --text-muted: var(--text-color);
+  --text-faint: var(--text-color-trans);
+  --h1-color: color-mix(in srgb, var(--text-color) 85%, transparent);
+  --h2-color: color-mix(in srgb, var(--text-color) 80%, transparent);
+  --h3-color: color-mix(in srgb, var(--text-color) 75%, transparent);
+  --h4-color: color-mix(in srgb, var(--text-color) 70%, transparent);
+  --h5-color: color-mix(in srgb, var(--text-color) 65%, transparent);
+  --h6-color: color-mix(in srgb, var(--text-color) 60%, transparent);
+  --link-color: var(--pen-blue);
+  --link-color-hover: var(--pen-light-blue);
+  --link-unresolved-color: var(--pen-red);
+  --hr-color: var(--text-color);
+  --blockquote-border-color: var(--text-color);
+  --embed-border-left: 2px solid var(--text-color);
+  --collapse-icon-color-collapsed: var(--text-color);
+  --checkbox-color: var(--text-color);
+  --checkbox-marker-color: var(--page-color);
+  --checkbox-color-hover: var(--text-color-trans);
+  --checkbox-border-color: var(--text-color);
+  --checklist-done-color: var(--text-color);
+  --list-marker-color: var(--text-color);
+  --interactive-accent: var(--text-color);
+  --metadata-label-text-color: var(--text-color);
+  --metadata-input-text-color: var(--text-color);
+  --tag-color: var(--text-color);
+  --tag-background: var(--text-color-trans);
+  --pill-cover-hover: color-mix(in srgb, var(--text-color) 60%, transparent);
+  --background-modifier-border-focus: var(--text-color);
+  --background-modifier-border: var(--text-color-trans);
+  --background-modifier-hover: color-mix(in srgb, var(--text-color) 60%, transparent);
+  background-color: var(--page-color);
+  color: var(--text-color);
+  color-scheme: dark;
+}
+
+.page-black {
+  --page-color: var(--page-black);
+}
+
+.page-blue {
+  --page-color: var(--page-blue);
+}
+
+.page-dblue {
+  --page-color: var(--page-dblue);
+}
+
+.page-violet {
+  --page-color: var(--page-violet);
+}
+
+.page-purple {
+  --page-color: var(--page-purple);
+}
+
+.page-karmin {
+  --page-color: var(--page-karmin);
+}
+
+.page-red {
+  --page-color: var(--page-red);
+}
+
+.page-orange {
+  --page-color: var(--page-orange);
+}
+
+.page-lorange {
+  --page-color: var(--page-lorange);
+}
+
+.page-yellow {
+  --page-color: var(--page-yellow);
+}
+
+.page-green {
+  --page-color: var(--page-green);
+}
+
+.page-lblue {
+  --page-color: var(--page-lblue);
+}
+
+/** pens **/
+.pen-base, .pen-purple, .pen-light-blue, .pen-blue, .pen-green, .pen-red, .pen-black, .pen-gray, .pen-white {
+  color: var(--text-color);
+}
+
+.pen-white {
+  --text-color: var(--pen-white);
+}
+
+.pen-gray {
+  --text-color: var(--pen-gray);
+}
+
+.pen-black {
+  --text-color: var(--pen-black);
+}
+
+.pen-red {
+  --text-color: var(--pen-red);
+}
+
+.pen-green {
+  --text-color: var(--pen-green);
+}
+
+.pen-blue {
+  --text-color: var(--pen-blue);
+}
+
+.pen-light-blue {
+  --text-color: var(--pen-light-blue);
+}
+
+.pen-purple {
+  --text-color: var(--pen-purple);
+}
+
+/** grids **/
+.grid-base, .page-bars, .page-lines, .page-grid {
+  background-size: var(--grid-size) var(--grid-size);
+}
+
+.page-grid {
+  background-image: linear-gradient(0deg, transparent 0px, var(--grid-color) 1px, var(--grid-color) 2px, transparent 3px), linear-gradient(90deg, transparent calc(var(--grid-size) - 3px), var(--grid-color) calc(var(--grid-size) - 2px), var(--grid-color) calc(var(--grid-size) - 1px), transparent var(--grid-size));
+}
+
+.page-lines {
+  background-image: linear-gradient(0deg, transparent 0px, var(--grid-color) 1px, var(--grid-color) 2px, transparent 3px);
+}
+
+.page-bars {
+  background-image: linear-gradient(90deg, transparent calc(var(--grid-size) - 3px), var(--grid-color) calc(var(--grid-size) - 2px), var(--grid-color) calc(var(--grid-size) - 1px), transparent var(--grid-size));
+}
+
+.grid-12 {
+  --grid-size: 12px;
+}
+
+.grid-16 {
+  --grid-size: 16px;
+}
+
+.grid-20 {
+  --grid-size: 20px;
+}
+
+.grid-24 {
+  --grid-size: 24px;
+}
+
+.grid-32 {
+  --grid-size: 32px;
+}
+
+.grid-40 {
+  --grid-size: 40px;
+}
+
+.grid-48 {
+  --grid-size: 48px;
+}
